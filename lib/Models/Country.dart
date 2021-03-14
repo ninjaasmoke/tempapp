@@ -53,7 +53,6 @@ class Country extends Equatable {
 List<String> getLangs(List<dynamic> data) {
   List<String> _langs = [];
   for (var lang in data) {
-    print(lang);
     var json = Language.fromJson(lang);
     _langs.add(json.name);
   }

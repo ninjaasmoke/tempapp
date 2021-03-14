@@ -72,7 +72,11 @@ class CountryItem extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.width * (3 / 4),
             child: country.flag != null && country.flag.length != 0
-                ? SvgPicture.network(country.flag)
+                ? SvgPicture.network(
+                    country.flag,
+                    placeholderBuilder: (context) =>
+                        Center(child: CircularProgressIndicator()),
+                  )
                 : Text("No flag"),
           )
         ],
