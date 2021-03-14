@@ -31,7 +31,8 @@ class _HomePageState extends State<HomePage> {
               height: MediaQuery.of(context).size.height * .45,
               width: MediaQuery.of(context).size.width,
               color: Color(0xff121212),
-              child: Text("I have used a custom UI..."),
+              child:
+                  Text("I have taken liberty with the UI if you don't mind..."),
               alignment: Alignment.center,
             ),
             Container(
