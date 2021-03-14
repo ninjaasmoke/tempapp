@@ -24,7 +24,7 @@ class CountryItem extends StatelessWidget {
                       style: TextStyle(color: Colors.red[400], fontSize: 24),
                     ),
                     Text(
-                      country.capital,
+                      "Capital: ${country.capital}",
                       style: TextStyle(color: Colors.grey[400], fontSize: 14),
                     ),
                     Text(
@@ -60,7 +60,15 @@ class CountryItem extends StatelessWidget {
                     style: TextStyle(color: Colors.grey[100], fontSize: 18),
                   ),
                   Text(
+                    "(region)",
+                    style: TextStyle(color: Colors.grey[400], fontSize: 14),
+                  ),
+                  Text(
                     country.subRegion,
+                    style: TextStyle(color: Colors.grey[100], fontSize: 18),
+                  ),
+                  Text(
+                    "(sub-region)",
                     style: TextStyle(color: Colors.grey[400], fontSize: 14),
                   ),
                 ],
@@ -77,7 +85,7 @@ class CountryItem extends StatelessWidget {
                     placeholderBuilder: (context) =>
                         Center(child: CircularProgressIndicator()),
                   )
-                : Text("No flag"),
+                : Text("Unable to load flag :("),
           )
         ],
       ),
