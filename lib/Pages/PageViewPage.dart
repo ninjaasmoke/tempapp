@@ -66,11 +66,15 @@ class _PageViewPageState extends State<PageViewPage> {
                       children: [
                         Center(
                           child: Container(
-                            margin: EdgeInsets.only(bottom: 16),
-                            height: 10,
-                            width: 180,
-                            color: Colors.blueGrey,
-                          ),
+                              margin: EdgeInsets.only(bottom: 16),
+                              height: 10,
+                              width: 170,
+                              child: LinearProgressIndicator(
+                                value: (_currentIndex / 4),
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                    Colors.blueGrey),
+                                backgroundColor: Colors.grey[200],
+                              )),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,

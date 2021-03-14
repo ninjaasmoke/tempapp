@@ -34,8 +34,13 @@ class _CountryPageState extends State<CountryPage> {
             backgroundColor: Color(0xff181827),
             appBar: AppBar(
               backgroundColor: Color(0xff181827),
+              centerTitle: true,
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.white),
+              title: Text(
+                "Country details",
+                style: TextStyle(color: Colors.grey[200]),
+              ),
             ),
             body: _currState == CurrState.loading
                 ? Center(
