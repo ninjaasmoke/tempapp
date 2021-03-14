@@ -66,8 +66,8 @@ class _PageViewPageState extends State<PageViewPage> {
                       children: [
                         Center(
                           child: Container(
-                              margin: EdgeInsets.only(bottom: 16),
-                              height: 10,
+                              margin: EdgeInsets.only(bottom: 12),
+                              height: 2,
                               width: 170,
                               child: LinearProgressIndicator(
                                 value: (_currentIndex / 4),
@@ -137,11 +137,25 @@ class _PageViewPageState extends State<PageViewPage> {
           color: getIndiColor(i),
         ),
         margin: EdgeInsets.all(12),
-        height: 20,
-        width: 20,
+        height: 24,
+        width: 24,
+        child: getIndiChild(i),
       ));
     }
     return _indicators;
+  }
+
+  Widget getIndiChild(int i) {
+    if (_currentIndex > i)
+      return Center(
+        child: Icon(
+          Icons.done,
+          size: 20,
+          color: Colors.white,
+        ),
+      );
+    else
+      return Container();
   }
 
   Color getIndiColor(int i) {
