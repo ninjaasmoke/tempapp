@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kidaura/Pages/HomePage.dart';
 
@@ -30,7 +31,9 @@ class CountryBlocObserver extends BlocObserver {
 
 void main() {
   Bloc.observer = CountryBlocObserver();
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -38,6 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        fontFamily: 'Product',
         textTheme: TextTheme(
           bodyText1: TextStyle(color: Color(0xfff8f8f8)),
           bodyText2: TextStyle(color: Color(0xfff8f8f8)),
