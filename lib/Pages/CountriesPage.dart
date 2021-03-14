@@ -53,8 +53,7 @@ class _CountryPageState extends State<CountryPage> {
                       height: 10,
                     ),
                     itemBuilder: (context, index) => CountryItem(
-                      countries: _countries,
-                      index: index,
+                      country: _countries[index],
                     ),
                     itemCount: _countries.length,
                   ),

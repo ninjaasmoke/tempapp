@@ -74,8 +74,7 @@ class CountryBody extends StatelessWidget {
 
         return ListView.separated(
             itemBuilder: (context, index) => CountryItem(
-                  countries: _countries,
-                  index: index,
+                  country: _countries[index],
                 ),
             separatorBuilder: (context, index) => Divider(
                   color: Colors.blueGrey,
