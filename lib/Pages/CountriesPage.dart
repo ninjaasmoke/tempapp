@@ -5,6 +5,7 @@ import 'package:kidaura/BLoC/CountryBloc.dart';
 import 'package:kidaura/BLoC/CountryState.dart';
 import 'package:kidaura/Models/Country.dart';
 import 'package:kidaura/Repo/CountryRepo.dart';
+import 'package:kidaura/Widgets/CountryItem.dart';
 
 enum CurrState { loading, done }
 
@@ -38,7 +39,7 @@ class _CountryPageState extends State<CountryPage> {
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.white),
               title: Text(
-                "Country details",
+                "Countries loaded on init",
                 style: TextStyle(color: Colors.grey[200]),
               ),
             ),
@@ -51,74 +52,9 @@ class _CountryPageState extends State<CountryPage> {
                       color: Colors.blueGrey,
                       height: 10,
                     ),
-                    itemBuilder: (context, index) => Container(
-                      padding: EdgeInsets.all(16.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  _countries[index].name,
-                                  style: TextStyle(
-                                      color: Colors.blueGrey[400],
-                                      fontSize: 24),
-                                ),
-                                Text(
-                                  _countries[index].capital,
-                                  style: TextStyle(
-                                      color: Colors.grey[400], fontSize: 14),
-                                ),
-                                Text(
-                                  "Population: ${_countries[index].population}",
-                                  style: TextStyle(
-                                      color: Colors.grey[400], fontSize: 14),
-                                ),
-                                Text(
-                                  "\nBordering Countries",
-                                  style: TextStyle(
-                                      color: Colors.blueGrey[400],
-                                      fontSize: 14),
-                                ),
-                                Text(
-                                  _countries[index].borders.toString(),
-                                  style: TextStyle(
-                                      color: Colors.grey[400], fontSize: 14),
-                                ),
-                                Text(
-                                  "\nLanguages Spoken",
-                                  style: TextStyle(
-                                      color: Colors.blueGrey[400],
-                                      fontSize: 14),
-                                ),
-                                Text(
-                                  _countries[index].languages.toString(),
-                                  style: TextStyle(
-                                      color: Colors.grey[400], fontSize: 14),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                _countries[index].region,
-                                style: TextStyle(
-                                    color: Colors.grey[100], fontSize: 18),
-                              ),
-                              Text(
-                                _countries[index].subRegion,
-                                style: TextStyle(
-                                    color: Colors.grey[400], fontSize: 14),
-                              ),
-                            ],
-                          ),
-                          // Image.network(_countries[index].flag)
-                        ],
-                      ),
+                    itemBuilder: (context, index) => CountryItem(
+                      countries: _countries,
+                      index: index,
                     ),
                     itemCount: _countries.length,
                   ),

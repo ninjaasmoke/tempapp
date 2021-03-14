@@ -1,33 +1,26 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:kidaura/Models/Country.dart';
 
-abstract class CountryState extends Equatable {}
+abstract class CountryState {
+  const CountryState();
+}
 
 class CountryInitialState extends CountryState {
-  @override
-  List<Object> get props => [];
+  const CountryInitialState();
 }
 
 class CountryLoadingState extends CountryState {
-  @override
-  List<Object> get props => [];
+  final String mes;
+  const CountryLoadingState({@required this.mes});
 }
 
-class CountryLoadedState extends CountryState {
+class CountrySuccessState extends CountryState {
   final List<Country> countries;
 
-  CountryLoadedState({@required this.countries});
-
-  @override
-  List<Object> get props => [countries];
+  CountrySuccessState({@required this.countries});
 }
 
 class CountryErrorState extends CountryState {
-  final String message;
-  CountryErrorState({@required this.message});
-
-  @override
-  // TODO: implement props
-  List<Object> get props => [message];
+  final String err;
+  CountryErrorState({@required this.err});
 }

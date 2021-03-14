@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
-
-abstract class CountryEvent extends Equatable {}
+abstract class CountryEvent {
+  const CountryEvent();
+}
 
 class FetchCountryEvent extends CountryEvent {
-  @override
-  List<Object> get props => [];
+  const FetchCountryEvent();
 }

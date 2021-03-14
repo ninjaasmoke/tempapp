@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kidaura/Pages/CountriesPage.dart';
+import 'package:kidaura/Pages/CountryBlocPage.dart';
 import 'package:kidaura/Pages/PageViewPage.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +40,16 @@ class _HomePageState extends State<HomePage> {
                       CupertinoPageRoute(builder: (context) => CountryPage()));
                 },
                 child: Text("Go to Page 2",
-                    style: TextStyle(color: Colors.grey[300])))
+                    style: TextStyle(color: Colors.grey[300]))),
+            OutlineButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => CountryBlocPage()));
+                },
+                child: Text("Go to Page 3",
+                    style: TextStyle(color: Colors.grey[300]))),
           ],
         ),
       ),

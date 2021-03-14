@@ -9,8 +9,7 @@ class CountryBloc extends Bloc<CountryEvent, CountryState> {
   final CountryRepository countryRepository;
 
   CountryBloc({@required this.countryRepository})
-      : assert(countryRepository != null),
-        super(null);
+      : super(CountryInitialState());
 
   // TODO: implement initialState
   CountryState get initialState => CountryInitialState();
@@ -18,15 +17,14 @@ class CountryBloc extends Bloc<CountryEvent, CountryState> {
   @override
   Stream<CountryState> mapEventToState(CountryEvent event) async* {
     if (event is FetchCountryEvent) {
-      yield CountryLoadingState();
-      print("In mapEventToState");
+      yield CountryLoadingState(mes: 'Loading countries...');
 
       try {
         final List<Country> countries =
             await countryRepository.fetchCountries();
-        yield CountryLoadedState(countries: countries);
+        yield CountrySuccessState(countries: countries);
       } catch (e) {
-        yield CountryErrorState(message: e.toString());
+        yield CountryErrorState(err: e.toString());
       }
     }
   }
