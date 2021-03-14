@@ -25,34 +25,42 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            OutlineButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (context) => PageViewPage()));
-                },
-                child: Text("Go to Page 1",
-                    style: TextStyle(color: Colors.grey[300]))),
-            OutlineButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (context) => CountryPage()));
-                },
-                child: Text("Go to Page 2",
-                    style: TextStyle(color: Colors.grey[300]))),
-            OutlineButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) => CountryBlocPage()));
-                },
-                child: Text("Go to Page 3",
-                    style: TextStyle(color: Colors.grey[300]))),
+            Container(
+              height: MediaQuery.of(context).size.height * .45,
+              width: MediaQuery.of(context).size.width,
+              color: Color(0xff121212),
+              child: Text("I have used a custom UI..."),
+              alignment: Alignment.center,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height * .45,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  getNavigationButton('PageView Page', PageViewPage()),
+                  getNavigationButton('Countries Page', CountryPage()),
+                  getNavigationButton('BLoC Countries Page', CountryBlocPage()),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Widget getNavigationButton(String name, Widget page) {
+    return OutlineButton(
+        borderSide: BorderSide(
+          color: Colors.blueGrey[200],
+        ),
+        onPressed: () {
+          Navigator.push(
+              context, CupertinoPageRoute(builder: (context) => page));
+        },
+        child: Text(name, style: TextStyle(color: Colors.grey[300])));
   }
 }
